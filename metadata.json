@@ -1,0 +1,6 @@
+{
+  "name": "HIGHEIGHTU.S.",
+  "description": "An AR-geospatial metaverse where magic meets machines. Synchronize with the Arcane Grid to claim territory, discover neural resonance, and command arcane entities in a world layered over reality.",
+  "requestFramePermissions": ["geolocation", "camera"],
+  "majorCapabilities": []
+}

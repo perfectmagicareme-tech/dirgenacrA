@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  --color-cyber-green: #00ff9f;
+  --color-cyber-orange: #ff3e00;
+  --color-cyber-purple: #bc13fe;
+  --color-cyber-cyan: #00ffff;
+  --color-cyber-bg: #0a0a0c;
+  --color-cyber-border: #2a2a2e;
+  --color-cyber-text: #e0e0e0;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--color-cyber-bg)] text-[var(--color-cyber-text)] font-sans overflow-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 50%, rgba(188, 19, 254, 0.05) 0%, transparent 70%),
+      radial-gradient(circle at 20% 80%, rgba(0, 255, 255, 0.05) 0%, transparent 50%);
+  }
+}
+
+@layer utilities {
+  .magic-glow {
+    text-shadow: 0 0 10px var(--color-cyber-purple), 0 0 20px var(--color-cyber-purple);
+  }
+  .arcane-border {
+    border: 1px solid rgba(188, 19, 254, 0.3);
+    box-shadow: 0 0 15px rgba(188, 19, 254, 0.1);
+  }
+  .sigil-float {
+    animation: float 6s ease-in-out infinite;
+  }
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.3);
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #00FF00;
+    border-radius: 10px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #00CC00;
+  }
+}
+
+@keyframes scan {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(100%); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+/* CRT Flicker Effect */
+@keyframes flicker {
+  0% { opacity: 0.27861; }
+  5% { opacity: 0.34769; }
+  10% { opacity: 0.23604; }
+  15% { opacity: 0.90626; }
+  20% { opacity: 0.18128; }
+  25% { opacity: 0.83891; }
+  30% { opacity: 0.65583; }
+  35% { opacity: 0.57807; }
+  40% { opacity: 0.26559; }
+  45% { opacity: 0.84693; }
+  50% { opacity: 0.96019; }
+  55% { opacity: 0.08594; }
+  60% { opacity: 0.20313; }
+  65% { opacity: 0.71988; }
+  70% { opacity: 0.53455; }
+  75% { opacity: 0.37288; }
+  80% { opacity: 0.71428; }
+  85% { opacity: 0.70419; }
+  90% { opacity: 0.7003; }
+  95% { opacity: 0.36108; }
+  100% { opacity: 0.24387; }
+}
+
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(18, 16, 16, 0.1);
+  opacity: 0;
+  z-index: 100;
+  pointer-events: none;
+  animation: flicker 0.15s infinite;
+}
